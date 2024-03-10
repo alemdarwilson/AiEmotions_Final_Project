@@ -4,4 +4,4 @@
 * Ozan Can ACAR
 * Nurhayat DURMUŞOĞLU
 * Eda YİĞİT
-* Elif YÜCEL
+* Elif Nur YÜCEL
