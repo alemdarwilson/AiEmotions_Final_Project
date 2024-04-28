@@ -1,5 +1,10 @@
 # face-recognition-final-project
 
+
+
+
+
+Members:
 * Meriç ALEMDAR
 * Ozan Can ACAR
 * Nurhayat DURMUŞOĞLU
