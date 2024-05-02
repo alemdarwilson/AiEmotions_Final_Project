@@ -1,6 +1,10 @@
 # face-recognition-final-project
 
-![Logo](https://www.resimupload.org/images/2024/04/28/AiEmotions-Logo2-1.md.png)
+
+<p align="center">
+  <img width="500" height="500" src="https://www.resimupload.org/images/2024/04/28/AiEmotions-Logo2-1.md.png">
+</p>
+
 
 AiEmotions project presents an innovative approach to addressing the increasing importance of emotional well-being in today's digital world across all age groups. Existing information systems often lack effective tools for real-time emotional assessment and intervention, posing significant challenges in promptly addressing mental health issues. The AiEmotions project aims to tackle this problem by introducing a novel approach that leverages artificial intelligence techniques for comprehensive emotion recognition and intervention.
 
