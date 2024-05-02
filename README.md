@@ -6,9 +6,9 @@ AiEmotions project presents an innovative approach to addressing the increasing 
 
 AiEmotions seeks to provide a robust platform for individuals to monitor and manage their emotional states through regular collection of photo and video data. Utilizing advanced AI algorithms, the system analyzes this data to detect unusual emotional patterns and triggers appropriate actions, such as alerts, reports, and personalized recommendations for emotional well-being exercises.
 
-Members:
-* Meriç ALEMDAR
-* Ozan Can ACAR
-* Nurhayat DURMUŞOĞLU
-* Eda YİĞİT
-* Elif Nur YÜCEL
+## Members:
+* [@Meriç ALEMDAR](https://github.com/alemdarwilson)
+* [@Ozan Can ACAR](https://github.com/OzanCanAcarSoft)
+* [@Nurhayat DURMUŞOĞLU](https://github.com/nurhayatdrmsglu)
+* [@Eda YİĞİT](https://github.com/edayigit)
+* [@Elif Nur YÜCEL](https://github.com/yucelfnur)
