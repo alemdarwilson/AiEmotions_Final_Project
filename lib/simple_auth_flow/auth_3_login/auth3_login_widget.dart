@@ -162,21 +162,10 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 12.0, 0.0),
-                                        child: Icon(
-                                          Icons.flourescent_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          size: 44.0,
+                                        child: Image.network(
+                                          'https://i.hizliresim.com/94uqbr9.png',
+                                          fit: BoxFit.cover,
                                         ),
-                                      ),
-                                      Text(
-                                        'flow.io',
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              letterSpacing: 0.0,
-                                            ),
                                       ),
                                     ],
                                   ),
@@ -500,7 +489,7 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                               children: [
                                                 TextSpan(
                                                   text:
-                                                      'Already have an account? ',
+                                                      'Create an AiEmotions account? ',
                                                   style: TextStyle(),
                                                 ),
                                                 TextSpan(
