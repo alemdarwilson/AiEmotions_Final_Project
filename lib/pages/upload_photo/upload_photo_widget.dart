@@ -1,6 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -137,15 +142,17 @@ class _UploadPhotoWidgetState extends State<UploadPhotoWidget> {
                                   children: [
                                     Padding(
                                       padding: EdgeInsets.all(4.0),
-                                      child: Container(
-                                        width: 120.0,
-                                        height: 120.0,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Image.network(
-                                          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                                      child: AuthUserStreamWidget(
+                                        builder: (context) => Container(
+                                          width: 120.0,
+                                          height: 120.0,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.network(
+                                            currentUserPhoto,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -159,7 +166,7 @@ class _UploadPhotoWidgetState extends State<UploadPhotoWidget> {
                                           shape: BoxShape.circle,
                                         ),
                                         child: Image.network(
-                                          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                                          _model.uploadedFileUrl,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -178,8 +185,62 @@ class _UploadPhotoWidgetState extends State<UploadPhotoWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  final selectedMedia =
+                                      await selectMediaWithSourceBottomSheet(
+                                    context: context,
+                                    allowPhoto: true,
+                                  );
+                                  if (selectedMedia != null &&
+                                      selectedMedia.every((m) =>
+                                          validateFileFormat(
+                                              m.storagePath, context))) {
+                                    setState(
+                                        () => _model.isDataUploading = true);
+                                    var selectedUploadedFiles =
+                                        <FFUploadedFile>[];
+
+                                    var downloadUrls = <String>[];
+                                    try {
+                                      selectedUploadedFiles = selectedMedia
+                                          .map((m) => FFUploadedFile(
+                                                name: m.storagePath
+                                                    .split('/')
+                                                    .last,
+                                                bytes: m.bytes,
+                                                height: m.dimensions?.height,
+                                                width: m.dimensions?.width,
+                                                blurHash: m.blurHash,
+                                              ))
+                                          .toList();
+
+                                      downloadUrls = (await Future.wait(
+                                        selectedMedia.map(
+                                          (m) async => await uploadData(
+                                              m.storagePath, m.bytes),
+                                        ),
+                                      ))
+                                          .where((u) => u != null)
+                                          .map((u) => u!)
+                                          .toList();
+                                    } finally {
+                                      _model.isDataUploading = false;
+                                    }
+                                    if (selectedUploadedFiles.length ==
+                                            selectedMedia.length &&
+                                        downloadUrls.length ==
+                                            selectedMedia.length) {
+                                      setState(() {
+                                        _model.uploadedLocalFile =
+                                            selectedUploadedFiles.first;
+                                        _model.uploadedFileUrl =
+                                            downloadUrls.first;
+                                      });
+                                    } else {
+                                      setState(() {});
+                                      return;
+                                    }
+                                  }
                                 },
                                 text: 'Upload Image',
                                 options: FFButtonOptions(
@@ -206,7 +267,10 @@ class _UploadPhotoWidgetState extends State<UploadPhotoWidget> {
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  context.pop();
+                                  await currentUserReference!
+                                      .update(createUsersRecordData(
+                                    photoUrl: _model.uploadedFileUrl,
+                                  ));
                                 },
                                 text: 'Save Changes',
                                 options: FFButtonOptions(

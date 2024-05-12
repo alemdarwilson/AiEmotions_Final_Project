@@ -1,8 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -31,6 +33,9 @@ class _Auth3CreateWidgetState extends State<Auth3CreateWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => Auth3CreateModel());
+
+    _model.nameSurnameTextController ??= TextEditingController();
+    _model.nameSurnameFocusNode ??= FocusNode();
 
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
@@ -155,34 +160,19 @@ class _Auth3CreateWidgetState extends State<Auth3CreateWidget>
                                   ),
                                 ),
                                 alignment: AlignmentDirectional(-1.0, 0.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 12.0, 0.0),
-                                        child: Icon(
-                                          Icons.flourescent_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          size: 44.0,
-                                        ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://i.hizliresim.com/hiv5afa.png',
+                                        width: 389.0,
+                                        height: 200.0,
+                                        fit: BoxFit.cover,
                                       ),
-                                      Text(
-                                        'flow.io',
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              fontFamily: 'Outfit',
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
                               Align(
@@ -215,6 +205,90 @@ class _Auth3CreateWidgetState extends State<Auth3CreateWidget>
                                                 fontFamily: 'Readex Pro',
                                                 letterSpacing: 0.0,
                                               ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 16.0),
+                                        child: Container(
+                                          width: double.infinity,
+                                          child: TextFormField(
+                                            controller: _model
+                                                .nameSurnameTextController,
+                                            focusNode:
+                                                _model.nameSurnameFocusNode,
+                                            autofocus: true,
+                                            autofillHints: [AutofillHints.name],
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              labelText: 'Name Surname',
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Readex Pro',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                              ),
+                                              errorBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                              ),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 2.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                              ),
+                                              filled: true,
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  letterSpacing: 0.0,
+                                                ),
+                                            cursorColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                            validator: _model
+                                                .nameSurnameTextControllerValidator
+                                                .asValidator(context),
+                                          ),
                                         ),
                                       ),
                                       Padding(
@@ -560,6 +634,14 @@ class _Auth3CreateWidgetState extends State<Auth3CreateWidget>
                                               if (user == null) {
                                                 return;
                                               }
+
+                                              await UsersRecord.collection
+                                                  .doc(user.uid)
+                                                  .update(createUsersRecordData(
+                                                    displayName: _model
+                                                        .nameSurnameTextController
+                                                        .text,
+                                                  ));
 
                                               context.goNamedAuth(
                                                   'HomePage', context.mounted);

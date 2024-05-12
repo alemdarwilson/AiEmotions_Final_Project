@@ -59,13 +59,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 children: [
                   Row(
                     mainAxisSize: MainAxisSize.max,
-                    children: [],
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'AiEmotions',
+                        'Hoşgeldin',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               fontSize: 46.0,
@@ -79,7 +75,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'Reflect Your Emotions!',
+                        'MOOD\'una göre müziğini seçmeye hazır mısın?',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               letterSpacing: 0.0,
@@ -94,7 +90,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 4.0),
                         child: Text(
-                          'How it works?',
+                          'Nasıl Çalışır?',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
@@ -174,6 +170,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               return;
                             }
                           }
+
+                          Navigator.pop(context);
                         },
                         text: '',
                         icon: Icon(

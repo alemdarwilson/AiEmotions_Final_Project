@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -159,11 +160,13 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 12.0, 0.0),
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                         child: Image.network(
-                                          'https://i.hizliresim.com/94uqbr9.png',
+                                          'https://picsum.photos/seed/521/600',
+                                          width: 300.0,
+                                          height: 200.0,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -489,11 +492,11 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                               children: [
                                                 TextSpan(
                                                   text:
-                                                      'Create an AiEmotions account? ',
+                                                      'You don\'t have an Account? ',
                                                   style: TextStyle(),
                                                 ),
                                                 TextSpan(
-                                                  text: 'Sign In here',
+                                                  text: 'Sign Up here',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium

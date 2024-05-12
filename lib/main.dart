@@ -160,10 +160,10 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.person_outline,
+              Icons.account_circle_outlined,
               size: 24.0,
             ),
-            label: 'Home',
+            label: '__',
             tooltip: '',
           )
         ],
