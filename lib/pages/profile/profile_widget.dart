@@ -9,6 +9,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'profile_model.dart';
 export 'profile_model.dart';
 
@@ -203,107 +204,96 @@ class _ProfileWidgetState extends State<ProfileWidget>
           automaticallyImplyLeading: false,
           actions: [],
           centerTitle: false,
-          elevation: 0.0,
+          elevation: 0,
         ),
         body: SafeArea(
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Opacity(
-                opacity: 0.0,
-                child: Card(
-                  clipBehavior: Clip.antiAliasWithSaveLayer,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50.0),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(2.0),
-                    child: AuthUserStreamWidget(
-                      builder: (context) => ClipRRect(
-                        borderRadius: BorderRadius.circular(60.0),
-                        child: Image.network(
-                          valueOrDefault<String>(
-                            currentUserPhoto,
-                            'https://firebasestorage.googleapis.com/v0/b/group13-83de4.appspot.com/o/profile-circle.svg?alt=media&token=507284fd-1be1-4a68-80c4-39cae61dd417',
-                          ),
-                          width: 100.0,
-                          height: 100.0,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+              Card(
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(2),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(60),
+                    child: Image.network(
+                      'https://i.hizliresim.com/hhmvir1.png',
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                ).animateOnPageLoad(animationsMap['cardOnPageLoadAnimation']!),
-              ),
+                ),
+              ).animateOnPageLoad(animationsMap['cardOnPageLoadAnimation']!),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                 child: AuthUserStreamWidget(
                   builder: (context) => Text(
                     currentUserDisplayName,
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
                           fontFamily: 'Outfit',
-                          letterSpacing: 0.0,
+                          letterSpacing: 0,
                         ),
                   ).animateOnPageLoad(
                       animationsMap['textOnPageLoadAnimation1']!),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                 child: Text(
                   currentUserEmail,
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Readex Pro',
                         color: FlutterFlowTheme.of(context).secondary,
-                        letterSpacing: 0.0,
+                        letterSpacing: 0,
                       ),
                 ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
               ),
               Divider(
-                height: 44.0,
-                thickness: 1.0,
-                indent: 24.0,
-                endIndent: 24.0,
+                height: 44,
+                thickness: 1,
+                indent: 24,
+                endIndent: 24,
                 color: FlutterFlowTheme.of(context).alternate,
               ).animateOnPageLoad(animationsMap['dividerOnPageLoadAnimation']!),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
-                    borderRadius: BorderRadius.circular(12.0),
+                    borderRadius: BorderRadius.circular(12),
                     border: Border.all(
                       color: FlutterFlowTheme.of(context).alternate,
-                      width: 2.0,
+                      width: 2,
                     ),
                   ),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(8.0, 12.0, 8.0, 12.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(8, 12, 8, 12),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
                           child: Icon(
                             Icons.account_circle_outlined,
                             color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24.0,
+                            size: 24,
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                           child: Text(
                             'Edit Profile',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  letterSpacing: 0.0,
+                                  letterSpacing: 0,
                                 ),
                           ),
                         ),
@@ -314,42 +304,39 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     animationsMap['containerOnPageLoadAnimation1']!),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
-                    borderRadius: BorderRadius.circular(12.0),
+                    borderRadius: BorderRadius.circular(12),
                     border: Border.all(
                       color: FlutterFlowTheme.of(context).alternate,
-                      width: 2.0,
+                      width: 2,
                     ),
                   ),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(8.0, 12.0, 8.0, 12.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(8, 12, 8, 12),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
                           child: Icon(
                             Icons.settings_outlined,
                             color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24.0,
+                            size: 24,
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                           child: Text(
                             'Account Settings',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  letterSpacing: 0.0,
+                                  letterSpacing: 0,
                                 ),
                           ),
                         ),
@@ -360,7 +347,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     animationsMap['containerOnPageLoadAnimation2']!),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     GoRouter.of(context).prepareAuthEvent();
@@ -371,22 +358,21 @@ class _ProfileWidgetState extends State<ProfileWidget>
                   },
                   text: 'Log Out',
                   options: FFButtonOptions(
-                    width: 150.0,
-                    height: 44.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    width: 150,
+                    height: 44,
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
                           fontFamily: 'Readex Pro',
-                          letterSpacing: 0.0,
+                          letterSpacing: 0,
                         ),
-                    elevation: 0.0,
+                    elevation: 0,
                     borderSide: BorderSide(
                       color: FlutterFlowTheme.of(context).alternate,
-                      width: 1.0,
+                      width: 1,
                     ),
-                    borderRadius: BorderRadius.circular(38.0),
+                    borderRadius: BorderRadius.circular(38),
                   ),
                 ).animateOnPageLoad(
                     animationsMap['buttonOnPageLoadAnimation']!),
