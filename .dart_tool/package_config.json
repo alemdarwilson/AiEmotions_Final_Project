@@ -69,7 +69,7 @@
     },
     {
       "name": "chewie",
-      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/chewie-1.7.1",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/chewie-1.7.5",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -650,6 +650,30 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "pointer_interceptor",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/pointer_interceptor-0.10.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
+      "name": "pointer_interceptor_ios",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/pointer_interceptor_ios-0.10.0+2",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
+      "name": "pointer_interceptor_platform_interface",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/pointer_interceptor_platform_interface-0.10.0+1",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
+      "name": "pointer_interceptor_web",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/pointer_interceptor_web-0.10.1+2",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "provider",
       "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/provider-6.0.5",
       "packageUri": "lib/",
@@ -944,6 +968,36 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "webview_flutter",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter-4.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "webview_flutter_android",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter_android-3.15.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "webview_flutter_platform_interface",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter_platform_interface-2.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "webview_flutter_wkwebview",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter_wkwebview-3.12.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "webviewx_plus",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/webviewx_plus-0.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "win32",
       "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/win32-5.5.0",
       "packageUri": "lib/",
@@ -968,13 +1022,25 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "youtube_player_iframe",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/git/youtube_player_flutter-4c9c39c61421b03b77eec21d2789f9f7ae6cf27a/packages/youtube_player_iframe",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "youtube_player_iframe_web",
+      "rootUri": "file:///C:/Users/Meri%C3%A7/AppData/Local/Pub/Cache/hosted/pub.dev/youtube_player_iframe_web-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "group13",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-05-12T00:36:36.894678Z",
+  "generated": "2024-05-12T01:10:41.767391Z",
   "generator": "pub",
   "generatorVersion": "3.3.4"
 }
