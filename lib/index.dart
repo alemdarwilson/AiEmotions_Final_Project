@@ -11,3 +11,4 @@ export '/simple_auth_flow/auth_3_verify_phone/auth3_verify_phone_widget.dart'
 export '/simple_auth_flow/auth_3_forgot_password/auth3_forgot_password_widget.dart'
     show Auth3ForgotPasswordWidget;
 export '/pages/profile/profile_widget.dart' show ProfileWidget;
+export '/pages/edit/edit_widget.dart' show EditWidget;

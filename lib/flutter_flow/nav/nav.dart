@@ -130,6 +130,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'Profile')
               : ProfileWidget(),
+        ),
+        FFRoute(
+          name: 'Edit',
+          path: '/edit',
+          builder: (context, params) => EditWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

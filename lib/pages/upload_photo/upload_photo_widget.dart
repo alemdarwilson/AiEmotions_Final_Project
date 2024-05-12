@@ -47,7 +47,7 @@ class _UploadPhotoWidgetState extends State<UploadPhotoWidget> {
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 60.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 1.0,
-        height: 350.0,
+        height: 613.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           borderRadius: BorderRadius.only(

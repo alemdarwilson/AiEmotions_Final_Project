@@ -167,7 +167,7 @@ class _Auth3CreateWidgetState extends State<Auth3CreateWidget>
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.network(
                                         'https://i.hizliresim.com/hiv5afa.png',
-                                        width: 389.0,
+                                        width: 370.0,
                                         height: 200.0,
                                         fit: BoxFit.cover,
                                       ),

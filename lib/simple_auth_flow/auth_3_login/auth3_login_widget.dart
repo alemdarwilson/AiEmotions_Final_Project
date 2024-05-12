@@ -164,8 +164,8 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: Image.network(
-                                          'https://picsum.photos/seed/521/600',
-                                          width: 300.0,
+                                          'https://i.hizliresim.com/hiv5afa.png',
+                                          width: 370.0,
                                           height: 200.0,
                                           fit: BoxFit.cover,
                                         ),
