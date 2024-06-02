@@ -132,6 +132,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'HomePage': HomePageWidget(),
       'Profile': ProfileWidget(),
+      'History2': History2Widget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -164,6 +165,14 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: '__',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.history_sharp,
+              size: 24.0,
+            ),
+            label: 'History',
             tooltip: '',
           )
         ],

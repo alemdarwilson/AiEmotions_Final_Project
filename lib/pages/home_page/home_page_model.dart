@@ -29,10 +29,12 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl = '';
 
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  DairyRecord? dsa;
   // Stores action output result for [Backend Call - API (EmotionDetectionAPI)] action in Button widget.
   ApiCallResponse? apiResultclt;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  DairyRecord? asd;
+  DairyRecord? aaaaaaa;
 
   @override
   void initState(BuildContext context) {}

@@ -10,7 +10,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'edit_model.dart';
 export 'edit_model.dart';
 
@@ -59,12 +58,12 @@ class _EditWidgetState extends State<EditWidget> {
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
-          borderRadius: 30,
-          buttonSize: 48,
+          borderRadius: 30.0,
+          buttonSize: 48.0,
           icon: Icon(
             Icons.arrow_back_rounded,
             color: FlutterFlowTheme.of(context).info,
-            size: 25,
+            size: 25.0,
           ),
           onPressed: () async {
             context.safePop();
@@ -74,12 +73,12 @@ class _EditWidgetState extends State<EditWidget> {
           'Edit Profile',
           style: FlutterFlowTheme.of(context).titleSmall.override(
                 fontFamily: 'Readex Pro',
-                letterSpacing: 0,
+                letterSpacing: 0.0,
               ),
         ),
         actions: [],
         centerTitle: false,
-        elevation: 0,
+        elevation: 0.0,
       ),
       body: SafeArea(
         top: true,
@@ -88,7 +87,7 @@ class _EditWidgetState extends State<EditWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 24, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -97,27 +96,28 @@ class _EditWidgetState extends State<EditWidget> {
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Outfit',
-                                letterSpacing: 0,
+                                letterSpacing: 0.0,
                               ),
                     ),
                   ],
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(
-                            width: 150,
-                            height: 150,
+                            width: 150.0,
+                            height: 150.0,
                             decoration: BoxDecoration(
                               color: Color(0xFFDBE2E7),
                               shape: BoxShape.circle,
@@ -125,11 +125,11 @@ class _EditWidgetState extends State<EditWidget> {
                             child: Stack(
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.all(4),
+                                  padding: EdgeInsets.all(4.0),
                                   child: AuthUserStreamWidget(
                                     builder: (context) => Container(
-                                      width: 150,
-                                      height: 150,
+                                      width: 150.0,
+                                      height: 150.0,
                                       clipBehavior: Clip.antiAlias,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
@@ -148,8 +148,8 @@ class _EditWidgetState extends State<EditWidget> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                50.0, 0.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 final selectedMedia =
@@ -215,25 +215,25 @@ class _EditWidgetState extends State<EditWidget> {
                               },
                               text: 'Edit Photo',
                               options: FFButtonOptions(
-                                height: 40,
+                                height: 40.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    24, 0, 24, 0),
-                                iconPadding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       color: Colors.white,
-                                      letterSpacing: 0,
+                                      letterSpacing: 0.0,
                                     ),
-                                elevation: 3,
+                                elevation: 3.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                           ),
@@ -245,8 +245,8 @@ class _EditWidgetState extends State<EditWidget> {
                       children: [
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => TextFormField(
                                 controller: _model.textController1,
@@ -258,43 +258,43 @@ class _EditWidgetState extends State<EditWidget> {
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
-                                        letterSpacing: 0,
+                                        letterSpacing: 0.0,
                                       ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
-                                        letterSpacing: 0,
+                                        letterSpacing: 0.0,
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
                                           .alternate,
-                                      width: 2,
+                                      width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
                                           FlutterFlowTheme.of(context).primary,
-                                      width: 2,
+                                      width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
-                                      width: 2,
+                                      width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
-                                      width: 2,
+                                      width: 2.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   filled: true,
                                   fillColor: FlutterFlowTheme.of(context)
@@ -304,7 +304,7 @@ class _EditWidgetState extends State<EditWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      letterSpacing: 0,
+                                      letterSpacing: 0.0,
                                     ),
                                 validator: _model.textController1Validator
                                     .asValidator(context),
@@ -319,8 +319,8 @@ class _EditWidgetState extends State<EditWidget> {
                       children: [
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController2,
                               focusNode: _model.textFieldFocusNode2,
@@ -332,43 +332,43 @@ class _EditWidgetState extends State<EditWidget> {
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      letterSpacing: 0,
+                                      letterSpacing: 0.0,
                                     ),
                                 hintText: 'Enter New Password',
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      letterSpacing: 0,
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
-                                    width: 2,
+                                    width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).primary,
-                                    width: 2,
+                                    width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
-                                    width: 2,
+                                    width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
-                                    width: 2,
+                                    width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
@@ -384,7 +384,7 @@ class _EditWidgetState extends State<EditWidget> {
                                         ? Icons.visibility_outlined
                                         : Icons.visibility_off_outlined,
                                     color: Color(0xFF757575),
-                                    size: 22,
+                                    size: 22.0,
                                   ),
                                 ),
                               ),
@@ -394,7 +394,7 @@ class _EditWidgetState extends State<EditWidget> {
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
-                                    letterSpacing: 0,
+                                    letterSpacing: 0.0,
                                   ),
                               validator: _model.textController2Validator
                                   .asValidator(context),
@@ -408,8 +408,8 @@ class _EditWidgetState extends State<EditWidget> {
                       children: [
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 16.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController3,
                               focusNode: _model.textFieldFocusNode3,
@@ -421,43 +421,43 @@ class _EditWidgetState extends State<EditWidget> {
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      letterSpacing: 0,
+                                      letterSpacing: 0.0,
                                     ),
                                 hintText: 'Confirm New Password',
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      letterSpacing: 0,
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
                                         FlutterFlowTheme.of(context).alternate,
-                                    width: 2,
+                                    width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).primary,
-                                    width: 2,
+                                    width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
-                                    width: 2,
+                                    width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: FlutterFlowTheme.of(context).error,
-                                    width: 2,
+                                    width: 2.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
@@ -473,7 +473,7 @@ class _EditWidgetState extends State<EditWidget> {
                                         ? Icons.visibility_outlined
                                         : Icons.visibility_off_outlined,
                                     color: Color(0xFF757575),
-                                    size: 22,
+                                    size: 22.0,
                                   ),
                                 ),
                               ),
@@ -483,7 +483,7 @@ class _EditWidgetState extends State<EditWidget> {
                                     fontFamily: 'Readex Pro',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
-                                    letterSpacing: 0,
+                                    letterSpacing: 0.0,
                                   ),
                               validator: _model.textController3Validator
                                   .asValidator(context),
@@ -531,22 +531,23 @@ class _EditWidgetState extends State<EditWidget> {
                 },
                 text: 'Save Changes',
                 options: FFButtonOptions(
-                  width: 270,
-                  height: 50,
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                  width: 270.0,
+                  height: 50.0,
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primary,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Readex Pro',
                         color: Colors.white,
-                        letterSpacing: 0,
+                        letterSpacing: 0.0,
                       ),
-                  elevation: 3,
+                  elevation: 3.0,
                   borderSide: BorderSide(
                     color: Colors.transparent,
-                    width: 1,
+                    width: 1.0,
                   ),
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12.0),
                 ),
               ),
             ],

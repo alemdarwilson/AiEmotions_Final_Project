@@ -92,7 +92,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/homePage',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'HomePage')
-              : HomePageWidget(),
+              : HomePageWidget(
+                  imgPath: params.getParam(
+                    'imgPath',
+                    ParamType.String,
+                  ),
+                ),
         ),
         FFRoute(
           name: 'auth_3_Create',
@@ -135,6 +140,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Edit',
           path: '/edit',
           builder: (context, params) => EditWidget(),
+        ),
+        FFRoute(
+          name: 'FilmSorgu',
+          path: '/filmSorgu',
+          builder: (context, params) => FilmSorguWidget(),
+        ),
+        FFRoute(
+          name: 'RecomendedFilm',
+          path: '/recomendedFilm',
+          builder: (context, params) => RecomendedFilmWidget(),
+        ),
+        FFRoute(
+          name: 'History2',
+          path: '/history2',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'History2')
+              : History2Widget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

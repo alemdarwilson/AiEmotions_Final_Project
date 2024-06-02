@@ -12,3 +12,6 @@ export '/simple_auth_flow/auth_3_forgot_password/auth3_forgot_password_widget.da
     show Auth3ForgotPasswordWidget;
 export '/pages/profile/profile_widget.dart' show ProfileWidget;
 export '/pages/edit/edit_widget.dart' show EditWidget;
+export '/film_sorgu/film_sorgu_widget.dart' show FilmSorguWidget;
+export '/recomended_film/recomended_film_widget.dart' show RecomendedFilmWidget;
+export '/history2/history2_widget.dart' show History2Widget;

@@ -66,6 +66,11 @@ class UsersRecord extends FirestoreRecord {
   String get title => _title ?? '';
   bool hasTitle() => _title != null;
 
+  // "birthday" field.
+  String? _birthday;
+  String get birthday => _birthday ?? '';
+  bool hasBirthday() => _birthday != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -77,6 +82,7 @@ class UsersRecord extends FirestoreRecord {
     _lastActiveTime = snapshotData['last_active_time'] as DateTime?;
     _role = snapshotData['role'] as String?;
     _title = snapshotData['title'] as String?;
+    _birthday = snapshotData['birthday'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -123,6 +129,7 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? lastActiveTime,
   String? role,
   String? title,
+  String? birthday,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -136,6 +143,7 @@ Map<String, dynamic> createUsersRecordData({
       'last_active_time': lastActiveTime,
       'role': role,
       'title': title,
+      'birthday': birthday,
     }.withoutNulls,
   );
 
@@ -156,7 +164,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.shortDescription == e2?.shortDescription &&
         e1?.lastActiveTime == e2?.lastActiveTime &&
         e1?.role == e2?.role &&
-        e1?.title == e2?.title;
+        e1?.title == e2?.title &&
+        e1?.birthday == e2?.birthday;
   }
 
   @override
@@ -170,7 +179,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.shortDescription,
         e?.lastActiveTime,
         e?.role,
-        e?.title
+        e?.title,
+        e?.birthday
       ]);
 
   @override
