@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
 class Auth3CreateModel extends FlutterFlowModel<Auth3CreateWidget> {
@@ -25,6 +26,11 @@ class Auth3CreateModel extends FlutterFlowModel<Auth3CreateWidget> {
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressTextController;
   String? Function(BuildContext, String?)? emailAddressTextControllerValidator;
+  // State field(s) for Birthday widget.
+  FocusNode? birthdayFocusNode;
+  TextEditingController? birthdayTextController;
+  final birthdayMask = MaskTextInputFormatter(mask: '##.##.####');
+  String? Function(BuildContext, String?)? birthdayTextControllerValidator;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
   TextEditingController? passwordTextController;
@@ -51,6 +57,9 @@ class Auth3CreateModel extends FlutterFlowModel<Auth3CreateWidget> {
 
     emailAddressFocusNode?.dispose();
     emailAddressTextController?.dispose();
+
+    birthdayFocusNode?.dispose();
+    birthdayTextController?.dispose();
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();
