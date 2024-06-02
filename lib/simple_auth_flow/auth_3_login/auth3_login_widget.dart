@@ -10,6 +10,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'auth3_login_model.dart';
 export 'auth3_login_model.dart';
 
@@ -99,7 +100,7 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                 Expanded(
                   flex: 5,
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0, -1),
                     child: Container(
                       width: double.infinity,
                       height: double.infinity,
@@ -109,11 +110,11 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                             FlutterFlowTheme.of(context).primaryBackground,
                             FlutterFlowTheme.of(context).accent1
                           ],
-                          stops: [0.0, 1.0],
-                          begin: AlignmentDirectional(1.0, 0.0),
-                          end: AlignmentDirectional(-1.0, 0),
+                          stops: [0, 1],
+                          begin: AlignmentDirectional(1, 0),
+                          end: AlignmentDirectional(-1, 0),
                         ),
-                        borderRadius: BorderRadius.circular(0.0),
+                        borderRadius: BorderRadius.circular(0),
                       ),
                     ),
                   ),
@@ -121,21 +122,21 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
               Expanded(
                 flex: 5,
                 child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0, 0),
                   child: Padding(
-                    padding: EdgeInsets.all(16.0),
+                    padding: EdgeInsets.all(16),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(16.0),
+                      borderRadius: BorderRadius.circular(16),
                       child: Container(
                         width: double.infinity,
                         height: double.infinity,
                         constraints: BoxConstraints(
-                          maxWidth: 570.0,
+                          maxWidth: 570,
                         ),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16.0),
+                          borderRadius: BorderRadius.circular(16),
                         ),
-                        alignment: AlignmentDirectional(0.0, -1.0),
+                        alignment: AlignmentDirectional(0, -1),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -143,30 +144,29 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                             children: [
                               Container(
                                 width: double.infinity,
-                                height: 140.0,
+                                height: 140,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(16.0),
-                                    bottomRight: Radius.circular(16.0),
-                                    topLeft: Radius.circular(0.0),
-                                    topRight: Radius.circular(0.0),
+                                    bottomLeft: Radius.circular(16),
+                                    bottomRight: Radius.circular(16),
+                                    topLeft: Radius.circular(0),
+                                    topRight: Radius.circular(0),
                                   ),
                                 ),
-                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1, 0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(8),
                                         child: Image.network(
                                           'https://i.hizliresim.com/hiv5afa.png',
-                                          width: 370.0,
-                                          height: 200.0,
+                                          width: 370,
+                                          height: 200,
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -175,10 +175,10 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0, 0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
+                                      16, 0, 16, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -190,25 +190,25 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                             .displaySmall
                                             .override(
                                               fontFamily: 'Outfit',
-                                              letterSpacing: 0.0,
+                                              letterSpacing: 0,
                                             ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 24.0),
+                                            0, 4, 0, 24),
                                         child: Text(
                                           'Let\'s get started by filling out the form below.',
                                           style: FlutterFlowTheme.of(context)
                                               .labelLarge
                                               .override(
                                                 fontFamily: 'Readex Pro',
-                                                letterSpacing: 0.0,
+                                                letterSpacing: 0,
                                               ),
                                         ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 16.0),
+                                            0, 0, 0, 16),
                                         child: Container(
                                           width: double.infinity,
                                           child: TextFormField(
@@ -229,37 +229,37 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                       .override(
                                                         fontFamily:
                                                             'Readex Pro',
-                                                        letterSpacing: 0.0,
+                                                        letterSpacing: 0,
                                                       ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  width: 2.0,
+                                                  width: 2,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
-                                                  width: 2.0,
+                                                  width: 2,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               errorBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  width: 2.0,
+                                                  width: 2,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
@@ -267,10 +267,10 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  width: 2.0,
+                                                  width: 2,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               filled: true,
                                               fillColor:
@@ -281,7 +281,7 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Readex Pro',
-                                                  letterSpacing: 0.0,
+                                                  letterSpacing: 0,
                                                 ),
                                             keyboardType:
                                                 TextInputType.emailAddress,
@@ -296,7 +296,7 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 16.0),
+                                            0, 0, 0, 16),
                                         child: Container(
                                           width: double.infinity,
                                           child: TextFormField(
@@ -317,37 +317,37 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                       .override(
                                                         fontFamily:
                                                             'Readex Pro',
-                                                        letterSpacing: 0.0,
+                                                        letterSpacing: 0,
                                                       ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
-                                                  width: 2.0,
+                                                  width: 2,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
-                                                  width: 2.0,
+                                                  width: 2,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               errorBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  width: 2.0,
+                                                  width: 2,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
@@ -355,10 +355,10 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  width: 2.0,
+                                                  width: 2,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(12.0),
+                                                    BorderRadius.circular(12),
                                               ),
                                               filled: true,
                                               fillColor:
@@ -382,7 +382,7 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                               ),
                                             ),
@@ -390,7 +390,7 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Readex Pro',
-                                                  letterSpacing: 0.0,
+                                                  letterSpacing: 0,
                                                 ),
                                             cursorColor:
                                                 FlutterFlowTheme.of(context)
@@ -402,12 +402,11 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                         ),
                                       ),
                                       Align(
-                                        alignment:
-                                            AlignmentDirectional(1.0, -1.0),
+                                        alignment: AlignmentDirectional(1, -1),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 16.0),
+                                                  0, 0, 0, 16),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               GoRouter.of(context)
@@ -431,12 +430,12 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                             },
                                             text: 'Login',
                                             options: FFButtonOptions(
-                                              width: 200.0,
-                                              height: 44.0,
+                                              width: 200,
+                                              height: 44,
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 0, 0, 0),
                                               iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 0, 0, 0),
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
@@ -447,15 +446,15 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                         fontFamily:
                                                             'Readex Pro',
                                                         color: Colors.white,
-                                                        letterSpacing: 0.0,
+                                                        letterSpacing: 0,
                                                       ),
-                                              elevation: 3.0,
+                                              elevation: 3,
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,
-                                                width: 1.0,
+                                                width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(12.0),
+                                                  BorderRadius.circular(12),
                                             ),
                                           ),
                                         ),
@@ -464,7 +463,7 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                       // You will have to add an action on this rich text to go to your login page.
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 12.0, 0.0, 12.0),
+                                            0, 12, 0, 12),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -507,8 +506,8 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
+                                                        fontSize: 16,
+                                                        letterSpacing: 0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -520,15 +519,15 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                       .override(
                                                         fontFamily:
                                                             'Readex Pro',
-                                                        letterSpacing: 0.0,
+                                                        letterSpacing: 0,
                                                       ),
                                             ),
                                           ),
                                         ),
                                       ),
                                       Divider(
-                                        height: 20.0,
-                                        thickness: 1.0,
+                                        height: 20,
+                                        thickness: 1,
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                       ),
@@ -536,7 +535,7 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                       // You will have to add an action on this rich text to go to your login page.
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 12.0, 0.0, 12.0),
+                                            0, 12, 0, 12),
                                         child: RichText(
                                           textScaler:
                                               MediaQuery.of(context).textScaler,
@@ -551,14 +550,13 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                 .labelLarge
                                                 .override(
                                                   fontFamily: 'Readex Pro',
-                                                  letterSpacing: 0.0,
+                                                  letterSpacing: 0,
                                                 ),
                                           ),
                                         ),
                                       ),
                                       Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, -1.0),
+                                        alignment: AlignmentDirectional(-1, -1),
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             context.pushNamed(
@@ -578,17 +576,17 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                           text: 'Continue with Phone',
                                           icon: Icon(
                                             Icons.phone_sharp,
-                                            size: 15.0,
+                                            size: 15,
                                           ),
                                           options: FFButtonOptions(
                                             width: double.infinity,
-                                            height: 44.0,
+                                            height: 44,
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 0.0, 24.0, 0.0),
+                                                    24, 0, 24, 0),
                                             iconPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
+                                                    0, 0, 0, 0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             textStyle:
@@ -596,17 +594,17 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'Readex Pro',
-                                                      letterSpacing: 0.0,
+                                                      letterSpacing: 0,
                                                     ),
-                                            elevation: 0.0,
+                                            elevation: 0,
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .alternate,
-                                              width: 2.0,
+                                              width: 2,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(12.0),
+                                                BorderRadius.circular(12),
                                             hoverColor:
                                                 FlutterFlowTheme.of(context)
                                                     .alternate,
@@ -614,12 +612,12 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .alternate,
-                                              width: 2.0,
+                                              width: 2,
                                             ),
                                             hoverTextColor:
                                                 FlutterFlowTheme.of(context)
                                                     .primaryText,
-                                            hoverElevation: 3.0,
+                                            hoverElevation: 3,
                                           ),
                                         ),
                                       ),
@@ -631,7 +629,7 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                               // You will have to add an action on this rich text to go to your login page.
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 120.0, 0.0, 24.0),
+                                    0, 120, 0, 24),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -668,8 +666,8 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
+                                                fontSize: 16,
+                                                letterSpacing: 0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         )
@@ -678,7 +676,7 @@ class _Auth3LoginWidgetState extends State<Auth3LoginWidget>
                                           .labelLarge
                                           .override(
                                             fontFamily: 'Readex Pro',
-                                            letterSpacing: 0.0,
+                                            letterSpacing: 0,
                                           ),
                                     ),
                                   ),
