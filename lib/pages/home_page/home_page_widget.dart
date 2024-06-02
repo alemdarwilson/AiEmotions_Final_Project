@@ -1,17 +1,30 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/emotion_detection_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/flutter_flow_youtube_player.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
+
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({super.key});
+  const HomePageWidget({
+    super.key,
+    this.imgPath,
+  });
+
+  final List<String>? imgPath;
 
   @override
   State<HomePageWidget> createState() => _HomePageWidgetState();
@@ -48,7 +61,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           body: SafeArea(
             top: true,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
@@ -66,8 +79,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
-                                    fontSize: 46.0,
-                                    letterSpacing: 0.0,
+                                    fontSize: 46,
+                                    letterSpacing: 0,
                                     fontWeight: FontWeight.w900,
                                   ),
                         ),
@@ -81,7 +94,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
+                                    letterSpacing: 0,
                                   ),
                         ),
                       ],
@@ -90,16 +103,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 16.0, 0.0, 4.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 4),
                           child: Text(
                             'How it works?',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  fontSize: 32.0,
-                                  letterSpacing: 0.0,
+                                  fontSize: 32,
+                                  letterSpacing: 0,
                                 ),
                           ),
                         ),
@@ -115,11 +127,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       strictRelatedVideos: false,
                     ),
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 64.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 64, 0, 0),
                       child: Container(
-                        width: 250.0,
-                        height: 250.0,
+                        width: 250,
+                        height: 250,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -129,6 +140,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             final selectedMedia =
                                 await selectMediaWithSourceBottomSheet(
                               context: context,
+                              maxWidth: 1280.00,
+                              maxHeight: 720.00,
                               allowPhoto: true,
                             );
                             if (selectedMedia != null &&
@@ -175,37 +188,142 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               }
                             }
 
-                            Navigator.pop(context);
+                            await DairyRecord.collection.doc().set({
+                              ...createDairyRecordData(
+                                photoUrl: _model.uploadedFileUrl,
+                                userId: currentUserUid,
+                                emotion: 'Not Determined',
+                              ),
+                              ...mapToFirestore(
+                                {
+                                  'entryDate': FieldValue.serverTimestamp(),
+                                },
+                              ),
+                            });
+                            await queryDairyRecordOnce(
+                              queryBuilder: (dairyRecord) => dairyRecord
+                                  .where(
+                                    'userId',
+                                    isEqualTo: currentUserUid,
+                                  )
+                                  .orderBy('entryDate', descending: true),
+                              singleRecord: true,
+                            ).then((s) => s.firstOrNull);
+                            _model.imgPath1 = _model.uploadedFileUrl;
+                            setState(() {});
+                            _model.apiResultclt =
+                                await EmotionDetectionAPICall.call(
+                              imgPath: _model.uploadedFileUrl,
+                            );
+                            if ((_model.apiResultclt?.succeeded ?? true)) {
+                              _model.asd = await queryDairyRecordOnce(
+                                queryBuilder: (dairyRecord) =>
+                                    dairyRecord.where(
+                                  'photoUrl',
+                                  isEqualTo: _model.uploadedFileUrl,
+                                ),
+                                singleRecord: true,
+                              ).then((s) => s.firstOrNull);
+
+                              await _model.asd!.reference
+                                  .update(createDairyRecordData(
+                                emotion: (_model.apiResultclt?.jsonBody ?? '')
+                                    .toString(),
+                              ));
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return WebViewAware(
+                                    child: AlertDialog(
+                                      title: Text('Success'),
+                                      content: Text('Success'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                            } else {
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return WebViewAware(
+                                    child: AlertDialog(
+                                      title: Text('Error!'),
+                                      content: Text(
+                                          (_model.apiResultclt?.jsonBody ?? '')
+                                              .toString()),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                            }
+
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return WebViewAware(
+                                  child: GestureDetector(
+                                    onTap: () => _model
+                                            .unfocusNode.canRequestFocus
+                                        ? FocusScope.of(context)
+                                            .requestFocus(_model.unfocusNode)
+                                        : FocusScope.of(context).unfocus(),
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: EmotionDetectionWidget(),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+
+                            setState(() {});
                           },
                           text: '',
                           icon: Icon(
                             Icons.camera_alt,
-                            size: 64.0,
+                            size: 64,
                           ),
                           options: FFButtonOptions(
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
+                            height: 40,
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                            iconPadding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
-                                  letterSpacing: 0.0,
+                                  letterSpacing: 0,
                                 ),
-                            elevation: 3.0,
+                            elevation: 3,
                             borderSide: BorderSide(
                               color: Colors.transparent,
-                              width: 1.0,
+                              width: 1,
                             ),
                             borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(1000.0),
-                              bottomRight: Radius.circular(1000.0),
-                              topLeft: Radius.circular(1000.0),
-                              topRight: Radius.circular(1000.0),
+                              bottomLeft: Radius.circular(1000),
+                              bottomRight: Radius.circular(1000),
+                              topLeft: Radius.circular(1000),
+                              topRight: Radius.circular(1000),
                             ),
                           ),
                         ),
