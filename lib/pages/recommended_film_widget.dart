@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'recomended_film_model.dart';
-export 'recomended_film_model.dart';
+import 'recommended_film_model.dart';
+export 'recommended_film_model.dart';
 
 class RecomendedFilmWidget extends StatefulWidget {
   const RecomendedFilmWidget({super.key});
