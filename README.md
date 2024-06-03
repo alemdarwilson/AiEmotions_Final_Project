@@ -11,7 +11,7 @@
 <p align="justify">AiEmotions seeks to provide a robust platform for individuals to monitor and manage their emotional states through regular collection of photo and video data. Utilizing advanced AI algorithms, the system analyzes this data to detect unusual emotional patterns and triggers appropriate actions, such as alerts, reports, and personalized recommendations for emotional well-being exercises.</p>
 
 ## APK Download:
-[Click to Download](https://drive.google.com/file/d/1OAtrFKFid6gL-IJom5SLsjWHD_VRxyFZ/view?usp=sharing)
+[Click to Download](https://drive.google.com/file/d/1mbzuzw75chSrHFcKK2_h4n9FZFop6iA3/view?usp=sharing)
 
 
 ## Members:
