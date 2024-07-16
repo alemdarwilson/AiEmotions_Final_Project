@@ -1,4 +1,4 @@
-# face-recognition-final-project
+# AiEmotions_Final_Project
 
 
 <p align="center">
